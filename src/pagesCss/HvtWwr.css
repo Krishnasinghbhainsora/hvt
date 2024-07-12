@@ -1,0 +1,6 @@
+@media (max-width: 768px) {
+    .scrollable-text {
+        max-height: 150px; /* Adjust the height as needed */
+        overflow-y: auto;
+    }
+}
