@@ -6,13 +6,13 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* Ensure the image doesn't overflow the card */
+  overflow: hidden; 
 }
 
 .card-img-top {
   height: 200px;
   object-fit: cover;
-  transition: transform 0.3s ease-in-out; /* Smooth transition for hover effect */
+  transition: transform 0.3s ease-in-out; 
 }
 
 .card-body {
@@ -27,8 +27,9 @@
 }
 
 .explore-btn {
-  background-color: black !important;
+  background-color: #9b8c5f  !important;
   border: none !important;
+  color: #fff;
 }
 
 .explore-btn:hover {
@@ -37,5 +38,5 @@
 }
 
 .card:hover .card-img-top {
-  transform: scale(1.2); /* Scale the image slightly on hover */
+  transform: scale(1.1); 
 }

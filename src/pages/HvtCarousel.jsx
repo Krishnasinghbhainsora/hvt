@@ -5,8 +5,8 @@ const HvtCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const images = [
-    "/images/new1.jpeg",
     "/images/new2.jpg",
+    "/images/new1.jpeg",
     "/images/yamunaa.jpg",
     "/images/new.jpg",
     "/images/new4.jpg",
@@ -14,9 +14,15 @@ const HvtCarousel = () => {
   ];
 
   useEffect(() => {
+    // Preload images
+    images.forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
+
     const interval = setInterval(() => {
       setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
-    }, 5000); // Change slide every 5 seconds
+    }, 4000); 
 
     return () => clearInterval(interval);
   }, [images.length]);

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card, Button, Modal, Row, Col, Form } from "react-bootstrap";
-import "../ComponentCss/PLanCard.css";
+import "../ComponentCss/PlanCard.css";
 
 const PlanCard = ({ plan }) => {
   const [showBookNow, setShowBookNow] = useState(false);
@@ -11,55 +11,35 @@ const PlanCard = ({ plan }) => {
 
   const handleCloseDetails = () => setShowDetails(false);
   const handleShowDetails = () => setShowDetails(true);
-  console.log(plan);
-
-  const itinerary = [
-    { day: "01", location: "Shree Krishna Janmasthan", description: "" },
-    { day: " 02", location: "Shree Dwarikadhish Temple", description: "" },
-    { day: " 03", location: "Shree Bhuteshwar Mahadev Temple", description: "" },
-    { day: " 04", location: "Birla Mandir", description: "" },
-    { day: "05", location: "Keshav Devji Temple", description: "" },
-    
-  ];
-
-  const pricing = [
-    { category: "Budget", cost: "Rs.26000" },
-    { category: "Deluxe", cost: "Rs.33500" },
-    { category: "Luxury", cost: "Rs.58500" },
-  ];
-
-  const inclusions = [
-    "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-  ];
 
   return (
-    
     <div className="plan-card">
       <Card>
         <Row noGutters>
           <Col md={4}>
-            <Card.Img src="/images/des9.jpeg" alt="Plan image" />
+            <Card.Img src={plan.imgSrc} alt="Plan image" />
           </Col>
           <Col md={8}>
             <Card.Body>
               <Card.Title>{plan.title}</Card.Title>
-              <Card.Text>{plan.description}</Card.Text>
+              <Card.Text>{plan.details}</Card.Text>
+              <div className="button-group">
+                <Button
+                  variant="primary"
+                  onClick={handleShowDetails}
+                  className="details-button mr-2"
+                >
+                  View Details
+                </Button>
+                <Button
+                  variant="success"
+                  onClick={handleShowBookNow}
+                  className="book-now-button"
+                >
+                  Book Now
+                </Button>
+              </div>
             </Card.Body>
-            <Button
-              variant="primary"
-              onClick={handleShowDetails}
-              className="mr-2"
-            >
-              View Details
-            </Button>
-            <Button variant="success" onClick={handleShowBookNow}>
-              Book Now
-            </Button>
           </Col>
         </Row>
       </Card>
@@ -71,18 +51,13 @@ const PlanCard = ({ plan }) => {
         <Modal.Body>
           <Row>
             <Col>
-              <img
-                src="/images/des9.jpeg"
-                alt="Plan"
-                style={{ width: "100%" }}
-              />
+              <img src={plan.imgSrc} alt="Plan" style={{ width: "80%", height:"200px"}} />
             </Col>
             <Col>
               <h4>{plan.title}</h4>
-              <p>{plan.description}</p>
+              <p>{plan.details}</p>
               <p>
-                <strong>Price: </strong> Rs.26000
-                {plan.price}
+                <strong>Price: </strong> {plan.pricing[0].cost}
               </p>
             </Col>
           </Row>
@@ -92,7 +67,7 @@ const PlanCard = ({ plan }) => {
             <span className="text main-hover"> Itinerary </span>
           </h5>
           <div className="itinerary">
-            {itinerary.map((item, index) => (
+            {plan.itinerary.map((item, index) => (
               <div key={index} className="itinerary-item mb-4">
                 <Row>
                   <Col md={2} className="itinerary-day">
@@ -118,7 +93,7 @@ const PlanCard = ({ plan }) => {
               </tr>
             </thead>
             <tbody>
-              {pricing.map((item, index) => (
+              {plan.pricing.map((item, index) => (
                 <tr key={index}>
                   <td>{item.category}</td>
                   <td>{item.cost}</td>
@@ -134,9 +109,8 @@ const PlanCard = ({ plan }) => {
           </p>
           <hr />
           <h5>Inclusions:</h5>
-          {/* <h5>Included</h5> */}
           <ul className="small">
-            {inclusions.map((item, index) => (
+            {plan.inclusions.map((item, index) => (
               <li key={index}>{item}</li>
             ))}
           </ul>
@@ -209,27 +183,14 @@ const PlanCard = ({ plan }) => {
 
             <Form.Group className="mb-3" controlId="formMessage">
               <Form.Label>Message</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={3}
-                placeholder="Message(Optional)"
-              />
+              <Form.Control as="textarea" rows={3} />
             </Form.Group>
 
-            <Form.Group controlId="formConsent">
-              <Form.Check
-                type="checkbox"
-                label="I authorize Holy Vrindavan Tour & its representatives to Call, SMS & Email me with reference to my Travel Enquiry. This consent will override any registration for DNC / NDNC."
-              />
-            </Form.Group>
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseBookNow}>
-            Close
-          </Button>
-          <Button variant="primary">Confirm Booking</Button>
-        </Modal.Footer>
       </Modal>
     </div>
   );

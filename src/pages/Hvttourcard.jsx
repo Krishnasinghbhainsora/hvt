@@ -5,11 +5,14 @@ import '../ComponentCss/Hvttourcard.css';
 import tours from "../Data/data.js";
 
 const Hvttourcard = () => {
+ 
+  const displayedTours = tours.slice(0, 6);
+
   return (
     <section className="bg-light mt-4 p-5">
       <div className="container">
         <div className="row">
-          <div className="col-12 text-center pb-3 ">
+          <div className="col-12 text-center pb-3">
             <h2 className="fw-bold fs-1">
               Our 
               <span className="main-hover"> Destinations </span>
@@ -17,10 +20,10 @@ const Hvttourcard = () => {
           </div>
         </div>
         <div className="row" data-aos="fade-up"
-        data-aos-anchor-placement="top-bottom" data-aos-duration="2000">
-          {tours.map((tour, index) => (
-            <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4"   key={index}>
-              <Card className="h-100" >
+          data-aos-anchor-placement="top-bottom" data-aos-duration="2000">
+          {displayedTours.map((tour, index) => (
+            <div className="col-12 col-md-6 col-lg-4 mb-4" key={index}>
+              <Card className="h-100">
                 <Card.Img variant="top" src={tour.imgSrc} className="card-img-top" />
                 <Card.Body className="card-body d-flex flex-column">
                   <Card.Title className="card-title text-center">{tour.title}</Card.Title>
