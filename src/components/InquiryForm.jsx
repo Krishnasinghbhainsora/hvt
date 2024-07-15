@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../ComponentCss/InquiryForm.css";
 import { AiOutlineClose } from "react-icons/ai";
-import emailjs from "@emailjs/browser";
+import emailjs from "@emailjs/browser"; // Ensure this is installed correctly
 import { toast } from "react-toastify";
 
 const InquiryForm = ({ onClose }) => {
