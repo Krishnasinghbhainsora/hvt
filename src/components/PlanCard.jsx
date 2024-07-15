@@ -69,7 +69,7 @@ const PlanCard = ({ plan }) => {
           <Modal.Title>Plan Details</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Row>
+          {/* <Row>
             <Col>
               <img
                 src="/images/des9.jpeg"
@@ -135,11 +135,11 @@ const PlanCard = ({ plan }) => {
           <hr />
           <h5>Inclusions:</h5>
           {/* <h5>Included</h5> */}
-          <ul className="small">
+          {/* <ul className="small">
             {inclusions.map((item, index) => (
               <li key={index}>{item}</li>
             ))}
-          </ul>
+          </ul> */} 
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleCloseDetails}>

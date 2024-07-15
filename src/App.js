@@ -19,7 +19,9 @@ import ScrollToTop from './pages/ScrollToTop';
 import Gallery from './pages/Gallery';
 import AboutFounder from './pages/AboutFounder';
 import WhyCUs from './pages/WhyCUs';
-
+// import Mathura from './pages/mathura';
+import Vrindavan from './Vrindavan';
+import Govardhan from './pages/Govardhan';
 
 
 
@@ -41,6 +43,7 @@ function App() {
             <AboutFounder/>
             <HvtReview />
             <HvtContactForm />
+            
           </>
         } />
         <Route path="/about" element={<HvtWwr />} />
@@ -50,7 +53,10 @@ function App() {
         <Route path="/terms-conditions" element={<HvtTnC />} />
         <Route path="/privacy-policy" element={<HvtPrivacyP />} />
         <Route path="/refund-policy" element={<HvtRnC />} />
-        <Route path="/reservation-policy" element={<HvtReservationP/> } />
+        <Route path="/reservation-policy" element={<HvtReservationP/> } /> 
+        
+          <Route path='vrindavan' element={<Vrindavan/>}/>
+          <Route path='govardhan' element={<Govardhan/>}/>
       </Routes>
       <HvtFloatingbtn />
       <HvtFooter />

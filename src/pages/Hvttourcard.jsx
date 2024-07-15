@@ -3,7 +3,7 @@ import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../ComponentCss/Hvttourcard.css';
 import tours from "../Data/data.js";
-
+import img1 from '../imgs/des1.jpeg'
 const Hvttourcard = () => {
   return (
     <section className="bg-light mt-4 p-5">
@@ -11,31 +11,35 @@ const Hvttourcard = () => {
         <div className="row">
           <div className="col-12 text-center pb-3 ">
             <h2 className="fw-bold fs-1">
-              Our 
+              Our
               <span className="main-hover"> Destinations </span>
             </h2>
           </div>
-        </div>
-        <div className="row" data-aos="fade-up"
-        data-aos-anchor-placement="top-bottom" data-aos-duration="2000">
-          {tours.map((tour, index) => (
-            <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4"   key={index}>
-              <Card className="h-100" >
-                <Card.Img variant="top" src={tour.imgSrc} className="card-img-top" />
-                <Card.Body className="card-body d-flex flex-column">
-                  <Card.Title className="card-title text-center">{tour.title}</Card.Title>
-                  <div className="d-flex justify-content-center mt-auto">
-                    <Link to={`/tour/${tour.id}`}>
-                      <Button variant="primary" className="explore-btn">EXPLORE</Button>
-                    </Link>
-                  </div>
-                </Card.Body>
-              </Card>
+
+          <div className='row'>
+            <div className="card">
+              <div className="card" style={{ width: '18rem' }}>
+                <img src={img1} className="card-img-top" alt="" />
+                <div className="card-body">
+
+                  <h5 className="card-title">Vrindavan</h5>
+                  <h5 className="btn btn-primary ">Go somewhere</h5>
+                </div>
+              </div>
+              {/* <div className="contain">
+                <div className="singlecard">
+                  <img src={img1} alt="" />
+                </div>
+                <h3 >Vrindavan</h3>
+              </div> */}
+
             </div>
-          ))}
+
+
+          </div>
         </div>
       </div>
-    </section>
+    </section >
   );
 }
 
