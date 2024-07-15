@@ -21,12 +21,12 @@
 
 .button-group {
   display: flex;
-  justify-content: flex-start; /* Align buttons to the left */
+  justify-content: flex-start; 
 }
 
 .details-button,
 .book-now-button {
-  width: 150px; /* Set your desired width here */
+  width: 150px; 
 }
 
 .itinerary {
